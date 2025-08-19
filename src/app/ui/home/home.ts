@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { LatestRelease } from '../latest-release/latest-release';
+
 import { TopRated } from '../top-rated/top-rated';
+import { Upcoming } from '../upcoming/upcoming';
 
 @Component({
   selector: 'app-home',
-  imports: [LatestRelease, TopRated],
+  imports: [TopRated, Upcoming],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

@@ -11,7 +11,8 @@ export class ApiService {
   http = inject(HttpClient)
 
   // recup par derniere sortie
-  getMovieByLatestRelease(limit: number = 0){
-    return this.http.get<MovieModel[]>(`${this.API}movie/latest?api_key=${this.API_key}&language=fr-FR`)
+  getMovieByUpcoming(){
+    return this.http.get<{ results: MovieModel[] }>(`${this.API}movie/upcoming?api_key=${this.API_key}&language=fr-FR`)
   }
 }
+//https://api.themoviedb.org/3/movie/latest?api_key=51b67384efd18ca981c82e5fae096c01&language=fr-FR
