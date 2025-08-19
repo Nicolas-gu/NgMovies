@@ -1,0 +1,39 @@
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--blueF);
+    height: 80px;
+    padding: 0 10px 0 10px ;
+    
+    .title{
+        h1{
+            color: white;
+            display: inline-block;
+            transition: color 0.3s ease;
+
+            &:hover{
+                
+                background: linear-gradient(90deg, #ff6a00, #ee0979, #4a90e2);
+                background-size: 200% auto;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradientShift 1.5s ease forwards;
+            }
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+}

@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --blueF: #213448;
+    --blueM: #547792;
+    --blueC: #94B4C1;
+    --yel: #ECEFCA;
+}
+
+*{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body{
+    background-color: black;
+}
+
+.button-glob{
+    background-color: var(--blueC);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 230ms ease-in-out;
+    font-size: 15px;
+    padding: 5px;
+    box-shadow: 5px 5px 35px 0px var(--blueF);
+    opacity: 0.8;
+    &:hover{
+        animation: tilt 1s linear infinite;
+        opacity: 1;
+        scale: 95%;
+    }
+}
+
+@keyframes tilt {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(2deg); }
+  50%  { transform: rotate(-2deg); }
+  75%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
