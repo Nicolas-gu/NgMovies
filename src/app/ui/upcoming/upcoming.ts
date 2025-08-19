@@ -1,6 +1,7 @@
+import { MovieModel } from './../../core/models/movie-model.models';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ApiService } from '../../core/services/api-service';
-import { MovieModel } from '../../core/models/movie-model.models';
+
 
 @Component({
   selector: 'app-upcoming',
@@ -11,9 +12,13 @@ import { MovieModel } from '../../core/models/movie-model.models';
 export class Upcoming implements OnInit{
 
   api = inject(ApiService);
-  upcomingMovie = signal<MovieModel[]>([]);
+  upcomingMovie = signal<any>([]);
 
   ngOnInit(): void {
-    console.log("ca marche")
+    this.api.getMovieByUpcoming().subscribe(
+      data => {
+        this.upcomingMovie.set(data.results);
+        console.log(this.upcomingMovie());
+    })
   }
 }

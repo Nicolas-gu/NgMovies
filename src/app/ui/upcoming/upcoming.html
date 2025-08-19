@@ -1,6 +1,6 @@
 <main>
     <p>upcoming works!</p>
-    @for (item of upcomingMovie(); track item.id) {
+    @for (item of upcomingMovie(); track $index) {
         <h2>{{item.title}}</h2>
     }
 
