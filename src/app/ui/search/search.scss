@@ -1,0 +1,12 @@
+.main{
+    background-color: var(--blueC);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input{
+        border-radius: 5px;
+        width: 500px;
+    }
+}

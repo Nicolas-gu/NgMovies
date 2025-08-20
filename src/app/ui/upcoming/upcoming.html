@@ -1,7 +1,16 @@
 <main>
-    <p>upcoming works!</p>
-    @for (item of upcomingMovie(); track $index) {
-        <h2>{{item.title}}</h2>
-    }
-
+    <div class="category">
+        <header>
+            <h3>Prochaine sortie</h3>
+        </header>
+        <div class="category-container">
+            @for (item of upcomingMovie(); track $index) {
+                <a class="movie-card" href="">
+                    <h5>{{item.title}}</h5>
+                    <p>{{item.release_date}}</p>
+                    <img [src]="'https://image.tmdb.org/t/p/w500/' + item.poster_path" alt="">
+                </a>
+            }
+        </div>
+    </div>
 </main>

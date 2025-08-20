@@ -12,8 +12,11 @@ export class ApiService {
   http = inject(HttpClient)
 
   // recup par derniere sortie
-  getMovieByUpcoming():Observable<any>{
-    return this.http.get(`${this.API}movie/upcoming?api_key=${this.API_key}&language=fr-FR`)
+  getMovieListByCategory(category: string):Observable<any>{
+    return this.http.get(`${this.API}movie${category}?api_key=${this.API_key}&language=fr-FR`)
   }
+
+  
 }
+
 //https://api.themoviedb.org/3/movie/latest?api_key=51b67384efd18ca981c82e5fae096c01&language=fr-FR

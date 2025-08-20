@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeftNav } from './left-nav';
+import { NowPlaying } from './now-playing';
 
-describe('LeftNav', () => {
-  let component: LeftNav;
-  let fixture: ComponentFixture<LeftNav>;
+describe('NowPlaying', () => {
+  let component: NowPlaying;
+  let fixture: ComponentFixture<NowPlaying>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LeftNav]
+      imports: [NowPlaying]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LeftNav);
+    fixture = TestBed.createComponent(NowPlaying);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
