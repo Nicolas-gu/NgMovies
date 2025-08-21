@@ -1,0 +1,8 @@
+@for (item of moviesList(); track $index) {
+    
+    <a class="movie-card" href="">
+        <h4>{{item.title}}</h4>
+        <img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path" alt="">
+    </a>
+    
+}

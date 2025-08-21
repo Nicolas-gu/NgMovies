@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-
-import { TopRated } from '../top-rated/top-rated';
-import { Upcoming } from '../upcoming/upcoming';
 import { Search } from '../search/search';
-import { NowPlaying } from '../now-playing/now-playing';
+import { MoviesList } from '../movies/movies-list/movies-list';
+
 
 @Component({
   selector: 'app-home',
-  imports: [TopRated, Upcoming, Search, NowPlaying],
+  imports: [ Search, MoviesList],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
