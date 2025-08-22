@@ -1,0 +1,20 @@
+<div class="main-container">
+    <form class="form-container" [formGroup]="newUserForm">
+        <div class="input">
+            <h4>Nom de compte</h4>
+            <input type="text" formControlName="name">
+        </div>
+        <div class="input">
+            <h4>Adresse email</h4>
+            <input type="email" formControlName="email">
+        </div>
+        <div class="input">
+            <h4>Mot de passe</h4>
+            <input type="password" formControlName="password">
+        </div>
+        <div class="input">
+            <h4>Confirmer le mot de passe</h4>
+            <input type="password" formControlName="confirmPassword">
+        </div>
+</form>
+</div>

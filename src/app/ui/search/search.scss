@@ -1,12 +1,22 @@
 .main{
-    background-color: var(--blueC);
+    background-color: var(--blueM);
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+    
 
-    input{
-        border-radius: 5px;
+    input, select{
+        border: none;
         width: 500px;
+        height: 25px;
+        border-radius: 5px;
+        box-shadow: 5px 5px 35px 0px var(--blueF);
+        transition: 230ms ease-in-out;
+        &:hover{
+            scale: 0.99;
+        }
     }
+    
 }

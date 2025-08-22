@@ -1,8 +1,9 @@
-@for (item of moviesList(); track $index) {
-    
-    <a class="movie-card" href="">
-        <h4>{{item.title}}</h4>
-        <img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path" alt="">
-    </a>
-    
-}
+<h4>Titre de la catégorie</h4>
+<div class="cat-div">
+    @for (item of moviesList(); track $index) { 
+        <a class="movie-card" href="">
+            <h4>{{item.title}}</h4>
+            <img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path" alt="">
+        </a>
+    }
+</div>

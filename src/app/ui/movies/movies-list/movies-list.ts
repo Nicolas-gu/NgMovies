@@ -13,12 +13,12 @@ export class MoviesList implements OnInit{
   moviesList = signal<any[]>([]);
   category = "/top_rated"
   
-ngOnInit(): void {
-  this.api.getMovieListByCategory(this.category).subscribe(
-    data => {
-      this.moviesList.set(data.results)
-      console.log(this.moviesList)
-    }
-  )
-}
+  ngOnInit(): void {
+    this.api.getMovieListByCategory(this.category).subscribe(
+      data => {
+        this.moviesList.set(data.results)
+        console.log(this.moviesList)
+      }
+    )
+  }
 }

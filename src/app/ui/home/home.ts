@@ -5,7 +5,7 @@ import { MoviesList } from '../movies/movies-list/movies-list';
 
 @Component({
   selector: 'app-home',
-  imports: [ Search, MoviesList],
+  imports: [ Search, MoviesList ],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
