@@ -2,10 +2,11 @@ import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { ApiService } from '../../../core/services/api-service';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: 'app-movies-list',
-  imports: [MatCardModule],
+  imports: [MatCardModule, MatIconModule],
   templateUrl: './movies-list.html',
   styleUrl: './movies-list.scss'
 })
