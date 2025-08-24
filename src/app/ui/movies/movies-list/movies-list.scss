@@ -1,31 +1,15 @@
-.cat-div{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 1rem;
-    padding: 1rem;
-    width: 700px;
-    height: 650px;          
-    overflow-y: auto;   
-    padding: 1rem;
 
-    a{
-        text-decoration: none;
-        color: inherit;
-        
-    }
-    
-    img{
-        border-radius: 10px;
-        transition: 230ms ease-in-out;
-        &:hover{
-            scale: 0.98;
-        }
-    }
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-marker-group: after;
+  
+  > li::scroll-marker {
+    content: ' ';
+  }
 
-    .movie-card{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-    }
+  > li::scroll-marker:target-current {
+    background: var(--accent);
+  }
 }

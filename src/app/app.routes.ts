@@ -4,7 +4,7 @@ import { MyFavorite } from './ui/my-favorite/my-favorite';
 import { ReactivForm } from './ui/reactiv-form/reactiv-form';
 
 export const routes: Routes = [
-    {path: "", component: Home},
+    {path: "", redirectTo: 'home', pathMatch: 'full' },
     {path: "home", component: Home},
     {path: "my_favorite", component: MyFavorite},
     {path: "new-user", component: ReactivForm},

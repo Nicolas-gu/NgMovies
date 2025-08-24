@@ -1,13 +1,21 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MatDrawerMode, MatSidenav, MatSidenavContainer, MatSidenavModule } from "@angular/material/sidenav";
+
+import { FormControl } from '@angular/forms';
+import { MatIconModule } from "@angular/material/icon";
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 import { Toolbar } from './ui/toolbar/toolbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Toolbar],
+  imports: [RouterOutlet, Toolbar, MatToolbarModule, MatButtonModule, MatSidenavContainer, MatSidenav, MatSidenavModule, MatIconModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  
 })
 export class App {
-  protected readonly title = signal('ProjetFrontApi');
+  mode = new FormControl('over' as MatDrawerMode);
+  
 }

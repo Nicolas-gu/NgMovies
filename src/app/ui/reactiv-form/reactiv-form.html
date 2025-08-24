@@ -1,20 +1,29 @@
 <div class="main-container">
-    <form class="form-container" [formGroup]="newUserForm">
+    <form class="form-container"[formGroup]="newUserForm">
         <div class="input">
-            <h4>Nom de compte</h4>
-            <input type="text" formControlName="name">
+            <mat-form-field appearance = "outline" > 
+                <mat-label>Nom d'utilisateur</mat-label > 
+                <input formControlName="name" matInput   > 
+                <mat-icon matSuffix >person_outline</mat-icon > 
+            </mat-form-field> 
         </div>
         <div class="input">
-            <h4>Adresse email</h4>
-            <input type="email" formControlName="email">
+            <mat-form-field appearance = "outline" > 
+                <mat-label>Email</mat-label > 
+                <input formControlName="email" matInput> 
+                <mat-icon matSuffix >mail_outline</mat-icon > 
+            </mat-form-field>
         </div>
         <div class="input">
-            <h4>Mot de passe</h4>
-            <input type="password" formControlName="password">
+            <mat-form-field appearance = "outline" > 
+                <mat-label>Mot de passe</mat-label > 
+                <input formControlName="password" matInput> 
+                <mat-icon matSuffix>lock_outline</mat-icon > 
+            </mat-form-field> 
         </div>
-        <div class="input">
-            <h4>Confirmer le mot de passe</h4>
-            <input type="password" formControlName="confirmPassword">
-        </div>
+        
 </form>
-</div>
+</div><mat-icon style="fill: pink">exit_to_app</mat-icon>
+<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+
+<!-- sentiment_very_satisfied -->

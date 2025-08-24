@@ -1,25 +1,36 @@
-.film-header{
-    position: relative;
-    width: 100%;
-    /* hauteur ajustable selon ton design */
-    min-height: 130px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow: hidden;
-    color: #fff;
 
-    h1{
-        position: relative;
-        z-index: 2;
-        font: 700 clamp(20px, 5vw, 48px)/1.1 system-ui, sans-serif;
-        text-shadow: 3px 3px 3px rgba(0,0,0,.6);
+header{
+    height: 90px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-color: black;
+    
+    .title{
+        display: flex;
+
+    }
+
+    button{
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
         
+    }
+    mat-icon{
+        color: white;
+        font-size: 35px;
+        width: 35px;
+        height: 35px;     
+    }
+    .film-bg{
+        display: flex;
     }
 
     a{
         text-decoration: none;
-        color: inherit;
+        color: white;
         transition: 230ms ease-in-out;
 
         &:hover{
@@ -27,25 +38,4 @@
         }
     }
     
-    .film-bg{
-        position:absolute; inset:0;
-        background-image: url('/film-strip.svg');
-        background-repeat: repeat-x;     /* répéter horizontalement si besoin */
-        background-size: auto 100%;      /* pleine hauteur, largeur auto */
-        background-position: 0 50%;
-        opacity: 1;
-        animation: film-scroll 80s linear infinite;
-        will-change: background-position;
-        opacity: 0.8;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    @keyframes film-scroll{
-        from{ background-position: 0 50%; }
-        to  { background-position: -1920px 50%; } /* même largeur que le viewBox */
-    }
-}
-
-
+} 
