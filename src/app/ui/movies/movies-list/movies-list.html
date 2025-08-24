@@ -1,11 +1,11 @@
 <div class="movie-list-container">
-    <h4>Titre de la catégorie</h4>
+    <h4>{{categoryTitle()}}</h4>
     <div class="card-list">
         @if (this._router.url === '/home') {
             @for (item of moviesList().slice(0,8); track $index) { 
                 <mat-card class="movie-card" appearance="outlined">
                     <mat-card-header>
-                        <mat-card-title>{{item.title}}</mat-card-title>
+                        <mat-card-title class="text-ellipsis" [attr.title]="item.title">{{item.title}}</mat-card-title>
                     </mat-card-header>
                     <a href=""><img mat-card-image [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path" alt="Photo of a Shiba Inu"></a>
                     <!-- <mat-card-actions>
@@ -18,7 +18,7 @@
             @for (item of moviesList(); track $index) { 
                 <mat-card class="movie-card" appearance="outlined">
                     <mat-card-header>
-                        <mat-card-title>{{item.title}}</mat-card-title>
+                        <mat-card-title class="text-ellipsis" [attr.title]="item.title">{{item.title}}</mat-card-title>
                     </mat-card-header>
                     <a href=""><img mat-card-image [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path" alt="Photo of a Shiba Inu"></a>
                     <!-- <mat-card-actions>

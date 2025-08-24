@@ -14,8 +14,8 @@ export class MoviesList implements OnInit{
   api = inject(ApiService);
   _router = inject(Router)
   moviesList = signal<any[]>([]);
-  // category = "/top_rated"
   category = input.required<string>();
+  categoryTitle = input.required<string>();
   
   ngOnInit(): void {
     this.api.getMovieListByCategory(this.category()).subscribe(
