@@ -1,36 +1,30 @@
 <div class="movie-list-container">
     <div class="title">
         <h3>{{categoryTitle()}}</h3>
-        <button class=".button-glob"><mat-icon>keyboard_arrow_down</mat-icon></button>
+        <button class="custom-btn btn-4"><mat-icon>fast_forward</mat-icon></button>
     </div>
     <div class="card-list">
         @if (this._router.url === '/home') {
             @for (item of moviesList().slice(0,8); track $index) { 
-                <mat-card class="movie-card" appearance="outlined">
-                    <mat-card-header>
-                        <mat-card-title class="text-ellipsis" [attr.title]="item.title">{{item.title}}</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
+                <div class="movie-card" appearance="outlined">
+                    <div class="title">
+                        {{item.title}}
+                    </div>
+                    <div class="img">
                         <a href=""><img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
-                    </mat-card-content>
-                    <!-- <mat-card-actions>
-                        <button matButton>LIKE</button>
-                        <button matButton>ADD</button>
-                    </mat-card-actions> -->
-                </mat-card>
+                    </div>
+                </div>
             }
         }@else {
             @for (item of moviesList(); track $index) { 
-                <mat-card class="movie-card" appearance="outlined">
-                    <mat-card-header>
-                        <mat-card-title class="text-ellipsis" [attr.title]="item.title">{{item.title}}</mat-card-title>
-                    </mat-card-header>
-                    <a href=""><img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
-                    <!-- <mat-card-actions>
-                        <button matButton>LIKE</button>
-                        <button matButton>ADD</button>
-                    </mat-card-actions> -->
-                </mat-card>
+                <div class="movie-card" appearance="outlined">
+                    <div class="text-ellipsis" [attr.title]="item.title">
+                        {{item.title}}
+                    </div>
+                    <div>
+                        <a href=""><img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
+                    </div>
+                </div>
             }
         }
         

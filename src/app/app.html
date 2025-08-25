@@ -2,11 +2,8 @@
 <app-toolbar></app-toolbar>
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav [mode]="mode.value || 'over'">
-    
     <div class="btn">
       <br>
-      
-
       <button class="button-87">Bouton 2</button>
       <button class="button-87">Bouton 2</button>
       <button class="button-87">Bouton 3</button>
@@ -16,12 +13,8 @@
   </mat-sidenav>
   <mat-sidenav-content container-text-color="">
     <!-- Toolbar toujours visible -->
-    
-      <button class="menu-btn-close" (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon></button>
-      
-    
-
+      <button class="custom-btn btn-4" (click)="sidenav.toggle()">
+      <mat-icon>apps</mat-icon></button>
     <!-- Contenu des routes -->
     <div class="main-content">
       <router-outlet></router-outlet>
