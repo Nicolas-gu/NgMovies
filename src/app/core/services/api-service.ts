@@ -13,7 +13,11 @@ export class ApiService {
   http = inject(HttpClient)
 
   getMovieListByCategory(category: string):Observable<any>{
-    return this.http.get(`${this.API}movie${category}?api_key=${this.API_key}&language=fr-FR`)
+    return this.http.get(`${this.API}movie/${category}?api_key=${this.API_key}&language=fr-FR`)
+  }
+
+  searchMovie(query:string): Observable<any>{
+    return this.http.get(`${this.API}search/movie?api_key=${this.API_key}&query=${encodeURIComponent(query)}&language=fr-FR`)
   }
 
   

@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatDrawerMode, MatSidenav, MatSidenavContainer, MatSidenavModule } from "@angular/material/sidenav";
 
 import { FormControl } from '@angular/forms';
@@ -10,7 +10,7 @@ import { Toolbar } from './ui/toolbar/toolbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Toolbar, MatToolbarModule, MatButtonModule, MatSidenavContainer, MatSidenav, MatSidenavModule, MatIconModule],
+  imports: [RouterLink, RouterOutlet, Toolbar, MatToolbarModule, MatButtonModule, MatSidenavContainer, MatSidenav, MatSidenavModule, MatIconModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   

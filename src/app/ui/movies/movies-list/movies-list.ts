@@ -1,29 +1,33 @@
-import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, OnInit, signal } from '@angular/core';
 import { ApiService } from '../../../core/services/api-service';
 import { MatCardModule } from '@angular/material/card';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: 'app-movies-list',
-  imports: [MatCardModule, MatIconModule],
+  imports: [MatCardModule, MatIconModule, RouterLink],
   templateUrl: './movies-list.html',
   styleUrl: './movies-list.scss'
 })
-export class MoviesList implements OnInit{
+export class MoviesList {
 
   api = inject(ApiService);
   _router = inject(Router)
   moviesList = signal<any[]>([]);
   category = input.required<string>();
   categoryTitle = input.required<string>();
-  
-  ngOnInit(): void {
-    this.api.getMovieListByCategory(this.category()).subscribe(
-      data => {
-        this.moviesList.set(data.results)
-        console.log(this.moviesList)
-      }
-    )
+  isHome = signal<boolean>(false);
+
+  constructor() {
+    effect(() => {
+      this.isHome.set(this._router.url === '/home');
+      this.api.getMovieListByCategory(this.category()).subscribe(
+        data => {
+          this.moviesList.set(data.results)
+          console.log(this.moviesList())
+        }
+      )
+    })
   }
 }

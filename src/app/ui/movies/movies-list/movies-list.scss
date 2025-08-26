@@ -5,29 +5,32 @@
   border: 1px solid rgba(255, 0, 0, 0.171);
   border-radius: 20px;
 }
-
 .title{
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
 }
-
-.card-list {
+.card-list.home{
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   align-items: end;
   gap: 1rem;
   width: 100%;
   box-sizing: border-box;
-  
+}
+.card-list.movies{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;  
 }
 h3,h4, h5{
   color: white;
 }
 .movie-card{
-  // flex-grow: 1;
-  // flex-basis: 150;
   border: none;
   width: 100%;
 }
@@ -37,10 +40,11 @@ h3,h4, h5{
   height: auto;
   display: block;
   transition: 250ms ease-in-out;
+  margin-top: 20px;
 }
-.movie-card a img:hover {
-  box-shadow: 0px 0px 15px 5px #961010;
-  scale: 1.2;
+.movie-card a img:hover{
+  box-shadow: 0px 0px 15px 5px #b31212;
+  scale: 1.05;
 }
   
 ////// TEST ELLIPSE
@@ -53,7 +57,10 @@ h3,h4, h5{
 //   cursor: help;             /* pointeur spécial pour info */
 // }
  
-.title{
-  padding-bottom: 15px;
+
+
+.title-movie{
+  padding-bottom: 20px;
 }
+
 

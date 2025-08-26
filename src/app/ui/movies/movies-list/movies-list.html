@@ -1,13 +1,15 @@
 <div class="movie-list-container">
     <div class="title">
         <h3>{{categoryTitle()}}</h3>
-        <button class="custom-btn btn-4"><mat-icon>fast_forward</mat-icon></button>
+        @if (this._router.url === '/home'){
+            <button class="custom-btn btn-4" [routerLink]="'/movies/' + category()"><mat-icon>fast_forward</mat-icon></button>
+        }
     </div>
-    <div class="card-list">
+    <div class="card-list" [class.home]="isHome()" [class.movies]="!isHome()">
         @if (this._router.url === '/home') {
             @for (item of moviesList().slice(0,8); track $index) { 
                 <div class="movie-card" appearance="outlined">
-                    <div class="title">
+                    <div class="title-movie">
                         {{item.title}}
                     </div>
                     <div class="img">
@@ -27,6 +29,5 @@
                 </div>
             }
         }
-        
     </div>
 </div>

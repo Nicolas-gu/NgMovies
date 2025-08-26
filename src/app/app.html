@@ -1,20 +1,28 @@
 
 <app-toolbar></app-toolbar>
+
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav [mode]="mode.value || 'over'">
+  <mat-sidenav #sidenav [mode]="mode.value || 'over'" (click)="sidenav.toggle()">
     <div class="btn">
       <br>
-      <button class="button-87">Bouton 2</button>
-      <button class="button-87">Bouton 2</button>
-      <button class="button-87">Bouton 3</button>
-      <button class="button-87">Bouton 4</button>
-      <button class="button-87">Bouton 5</button>
+      <button class="" routerLink="movies/now_playing">Sorties</button>
+      <button class="" routerLink="movies/popular">Populaires</button>
+      <button class="" routerLink="movies/top_rated">Les mieux notés</button>
+      <button class="" routerLink="movies/upcoming">À venir</button>
+      
     </div>
   </mat-sidenav>
   <mat-sidenav-content container-text-color="">
     <!-- Toolbar toujours visible -->
+    <div class="search-content">
       <button class="custom-btn btn-4" (click)="sidenav.toggle()">
-      <mat-icon>apps</mat-icon></button>
+        <mat-icon >apps</mat-icon>
+      </button>
+      <div class="search-container">
+        <input class="search-bar" type="text"><mat-icon class="search-icon">search</mat-icon>
+      </div>
+      <div></div>
+    </div>
     <!-- Contenu des routes -->
     <div class="main-content">
       <router-outlet></router-outlet>

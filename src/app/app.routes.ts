@@ -9,5 +9,5 @@ export const routes: Routes = [
     {path: "home", component: Home},
     {path: "my_favorite", component: MyFavorite},
     {path: "new-user", component: ReactivForm},
-    {path: "top_rated", component: Movies},
+    {path: "movies/:category", component: Movies},
 ];
