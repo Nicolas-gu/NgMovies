@@ -1,0 +1,25 @@
+
+.main{
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+p, li, h2{
+    color: white;
+}
+.info-container{
+     display: flex;
+    flex-direction: column;
+    max-width: 780px;
+    align-items: start;
+}
+.img-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 780px;
+    align-items: end;
+}
+
+img{
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+}

@@ -9,12 +9,12 @@
         @if (this._router.url === '/home') {
             @for (item of moviesList().slice(0,8); track $index) { 
                 <div class="movie-card" appearance="outlined">
-                    <div class="title-movie">
-                        {{item.title}}
-                    </div>
                     <div class="img">
                         <a [routerLink]="['/movie', item.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
                     </div>
+                    <!-- <div class="title-movie">
+                        {{item.title}}
+                    </div> -->
                 </div>
             }
         }@else {
