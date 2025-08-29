@@ -20,6 +20,9 @@ export class ApiService {
     return this.http.get(`${this.API}search/movie?api_key=${this.API_key}&query=${encodeURIComponent(query)}&language=fr-FR`)
   }
 
+  getMovie(movieId: string):Observable<any>{
+    return this.http.get(`${this.API}movie/${movieId}?api_key=${this.API_key}&language=fr-FR`)
+  }
   
 }
 

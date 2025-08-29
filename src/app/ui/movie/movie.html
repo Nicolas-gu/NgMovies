@@ -1,1 +1,20 @@
-<p>movie works!</p>
+<div>
+    <p>{{ movie | json }}</p>
+  @if (movie(); as m) {
+    <h2>{{ m.title }}</h2>
+    <p>{{ m.overview }}</p>
+
+    <img [src]="'https://image.tmdb.org/t/p/w500' + m.poster_path" 
+         alt="{{ m.title }}">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + m.backdrop_path" 
+         alt="{{ m.title }}">
+
+    <ul>
+      <li><strong>Date de sortie :</strong> {{ m.release_date }}</li>
+      <li><strong>Note :</strong> {{ m.vote_average }} / 10</li>
+      <li><strong>Durée :</strong> {{ m.runtime }} min</li>
+    </ul>
+  } @else {
+    <p>Chargement du film...</p>
+  }
+</div>
