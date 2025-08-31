@@ -1,18 +1,18 @@
 import { Component, effect, inject, input, Signal, signal, WritableSignal } from '@angular/core';
 import { ApiService } from '../../core/services/api-service';
 import { ROUTER_OUTLET_DATA, RouterLink } from '@angular/router';
+import { SearchBar } from '../search-bar/search-bar';
 
 @Component({
   selector: 'app-search-movie-list',
-  imports: [RouterLink],
+  imports: [RouterLink, SearchBar],
   templateUrl: './search-movie-list.html',
   styleUrl: './search-movie-list.scss'
 })
 export class SearchMovieList {
-  data = inject(ROUTER_OUTLET_DATA)
   private _api = inject(ApiService);
   movieList = signal<any[]>([]);
-  external_id = signal<any>(this.data)
+  external_id = signal<any>("")
 
   constructor() {
     effect(() => {

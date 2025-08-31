@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { MoviesList } from '../movies/movies-list/movies-list';
-import { Toolbar } from "../toolbar/toolbar";
-import { MatSidenavContainer, MatSidenavModule } from "@angular/material/sidenav";
+import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
+import { SearchBar } from '../search-bar/search-bar';
 
 
 
 @Component({
   selector: 'app-home',
-  imports: [MoviesList, Toolbar, MatSidenavContainer, MatSidenavModule, MatIconModule],
+  imports: [MoviesList, MatSidenavModule, MatIconModule, SearchBar],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

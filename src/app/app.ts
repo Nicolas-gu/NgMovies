@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { MatDrawerMode, MatSidenav, MatSidenavContainer, MatSidenavModule } from "@angular/material/sidenav";
+import { Router,  RouterOutlet } from '@angular/router';
+import { MatDrawerMode,  MatSidenavModule } from "@angular/material/sidenav";
 
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from "@angular/material/icon";
@@ -18,13 +18,7 @@ import { Toolbar } from './ui/toolbar/toolbar';
 export class App {
 
   mode = new FormControl('over' as MatDrawerMode);
-  formbuilder = inject(FormBuilder)
   router = inject(Router)
-  externalId = signal(
-    this.formbuilder.group({
-      searchInput:[""]
-    })
-  )
 
   onSubmit(){
     this.router.navigate(['search/'])

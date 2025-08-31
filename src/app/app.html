@@ -1,14 +1,7 @@
 <main>
   <app-toolbar></app-toolbar>
-  <div class="search-content">
-    <div [formGroup]="externalId()" class="search-container">
-      <input formControlName="searchInput" class="search-bar" type="text">
-      <button (click)="onSubmit()" type="submit" class="search-btn"><mat-icon class="search-icon">search</mat-icon></button>
-    </div>
-    
-  </div>
   <div class="main-content">
-    <router-outlet [routerOutletData]="externalId()"></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </main>
  

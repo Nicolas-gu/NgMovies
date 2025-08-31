@@ -9,7 +9,7 @@ import { ApiService } from '../../core/services/api-service';
 
 @Component({
   selector: 'app-toolbar',
-  imports: [RouterLink, MatIconModule, MatMenuModule, MatInputModule],
+  imports: [ MatIconModule, MatMenuModule, MatInputModule],
   templateUrl: './toolbar.html',
   styleUrl: './toolbar.scss',
   
@@ -18,18 +18,6 @@ export class Toolbar {
   showSearch = false;
   api = inject(ApiService)
   router = inject(Router)
-  isMovie = true
   
-  changeMovieTv(){
-    // if (this.router.url !== "movie"){
-      this.isMovie = !this.isMovie
-      if(this.isMovie){
-        this.api.movieOrTv.set("movie/")
-        console.log("ca marche pour film??")
-      }else{
-        this.api.movieOrTv.set("tv/")
-        console.log("ca marche?")
-      }
-    // }
-  }
+  
 }

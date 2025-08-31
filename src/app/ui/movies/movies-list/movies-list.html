@@ -18,12 +18,7 @@
             @for (item of moviesList(); track $index) { 
                 <div class="movie-card" appearance="outlined">
                     <div class="text-ellipsis" [attr.title]="item.title">
-                        @if (api.movieOrTv() === "movie/") {
-                            <p>{{item.title}}</p>
-                        }@else {
-                            <p>{{item.name}}</p>
-                        }
-                        
+                        <p>{{item.title}}</p>
                     </div>
                     <div>
                         <a [routerLink]="['/movie', item.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>

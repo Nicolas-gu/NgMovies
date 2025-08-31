@@ -23,11 +23,7 @@
       
     </div>
     <div class="img-container">
-      @if (api.movieOrTv() === "movie/") {
-        <h1 class="title">{{ movie().title }}</h1>
-      }@else {
-        <h1 class="title">{{ movie().name }}</h1>
-      }
+      <h1 class="title">{{ movie().title }}</h1>
       <img class="back-img" [src]="'https://image.tmdb.org/t/p/w1280' + movie().backdrop_path" 
             alt="{{ movie().title }}">
     </div>
