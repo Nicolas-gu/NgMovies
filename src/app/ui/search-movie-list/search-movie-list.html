@@ -1,0 +1,12 @@
+@if (movieList()) {
+    @for (item of movieList(); track $index) { 
+        <div class="movie-card" appearance="outlined">
+            <div class="text-ellipsis" [attr.title]="item.title">
+                {{item.title}}
+            </div>
+            <div>
+                <a [routerLink]="['/movie', item.id]"><img  [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
+            </div>
+        </div>
+    }
+}

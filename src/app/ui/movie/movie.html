@@ -1,23 +1,40 @@
 <div class="main">
-  @if (movie(); as m) {
+  @if (movie()) {
     <div class="info-container">
-      <p>{{ m.overview }}</p>
-      
+      @if (movie().overview) {
+        <p>{{ movie().overview }}</p>
+      }@else {
+        <p>Pas encore de description pour ce film</p>
+      }
       <!-- <img [src]="'https://image.tmdb.org/t/p/w500' + m.poster_path" 
       alt="{{ m.title }}"> -->
       
-      <ul>
-          <li><strong>Date de sortie :</strong> {{ m.release_date }}</li>
-          <li><strong>Note :</strong> {{ m.vote_average }} / 10</li>
-          <li><strong>Durée :</strong> {{ m.runtime }} min</li>
-        </ul>
+      <div class="infos">
+        <div class="info">
+          <p><strong>Date de sortie :</strong> {{ movie().release_date }}</p>
+        </div>
+        <div class="info">
+          <p><strong>Note :</strong> {{ movie().vote_average }} / 10</p>
+        </div>
+        <div class="info">
+          <p><strong>Durée :</strong> {{ movie().runtime }} min</p>
+        </div>
+      </div>
+      
     </div>
     <div class="img-container">
-        <h2>{{ m.title }}</h2>
-        <img class="back-img" [src]="'https://image.tmdb.org/t/p/w780' + m.backdrop_path" 
-             alt="{{ m.title }}">
+      @if (api.movieOrTv() === "movie/") {
+        <h1 class="title">{{ movie().title }}</h1>
+      }@else {
+        <h1 class="title">{{ movie().name }}</h1>
+      }
+      <img class="back-img" [src]="'https://image.tmdb.org/t/p/w1280' + movie().backdrop_path" 
+            alt="{{ movie().title }}">
     </div>
   } @else {
     <p>Chargement du film...</p>
   }
+</div>
+<div class="similar-container">
+  <app-similar-list></app-similar-list>
 </div>

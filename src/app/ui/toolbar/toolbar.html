@@ -4,12 +4,12 @@
         <a href=""><h1>NgMovies</h1></a>
     </div>
     <div class="movie-mode flex">
-        <button class="mode-btn">Film / Série<span></span></button>
+        <button (click)="changeMovieTv()" class="mode-btn">Film / Série<span></span></button>
     </div>
     <div class="toolbar-btn flex">
-        <button>Mes films</button>
+        <button class="button-glob">Mes films</button>
         <!-- <button><mat-icon>person_outline</mat-icon></button> -->
-        <button>Mon compte</button>
+        <button class="button-glob">Mon compte</button>
     </div>
 </header>
 <!-- <mat-icon>power_settings_new</mat-icon>

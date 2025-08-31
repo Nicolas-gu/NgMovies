@@ -20,7 +20,7 @@ export class MoviesList {
   isHome = signal<boolean>(false);
 
   constructor() {
-    effect(() => {
+    effect(() => {    // s'execute a la creation et a chaque changement de signal
       this.isHome.set(this._router.url === '/home');
       this.api.getMovieListByCategory(this.category()).subscribe(
         data => {

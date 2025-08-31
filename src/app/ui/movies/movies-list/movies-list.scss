@@ -1,9 +1,6 @@
 .movie-list-container{
-  color: white;
   margin: 0 60px;
   padding: 20px 20px;
-  // border: 1px solid rgba(255, 0, 0, 0.171);
-  border-radius: 20px;
 }
 .title{
   display: flex;
@@ -36,17 +33,14 @@
   width: 100%;
   box-sizing: border-box;  
 }
-h3,h4, h5{
+h3,h4, h5, p{
   color: white;
 }
 .movie-card{
   border: none;
   width: 100%;
-  
 }
-
 img{
-  border: 2px solid white;
   box-shadow: 5px 5px 10px rgb(0, 0, 0);
 } 
 img.home{
@@ -54,7 +48,7 @@ img.home{
     linear-gradient(transparent, rgba(0,0,0,0.001), rgba(0,0,0,0.01), rgba(0,0,0,0.2));
 }
 .movie-card a img{
-  border-radius: 10px;
+  border-radius: 8px 8px 0 0;
   width: 100%;
   height: auto;
   display: block;
@@ -63,25 +57,11 @@ img.home{
 }
 .movie-card a img:hover{
   box-shadow: 0px 0px 15px 5px #b31212;
-  
   scale: 1.08;
 }
-
-  
-////// TEST ELLIPSE
-//   .text-ellipsis {
-//   white-space: nowrap;      /* reste sur une seule ligne */
-//   overflow: hidden;         /* cache le reste */
-//   text-overflow: ellipsis;  /* ajoute ... à la fin */
-//   max-width: 200px;         /* largeur max (à adapter) */
-//   display: block;           /* ou inline-block */
-//   cursor: help;             /* pointeur spécial pour info */
-// }
- 
-
-
 .title-movie{
   padding-bottom: 20px;
 }
+
 
 

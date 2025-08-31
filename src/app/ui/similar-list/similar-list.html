@@ -1,0 +1,19 @@
+<div class="movie-list-container">
+    <div class="title">
+        @if (_api.movieOrTv() === "movie/") {
+            <h3>Films similaires</h3>
+        }@else {
+            <h3>Séries similaires</h3>
+        }
+        
+    </div>
+    <div class="card-list">
+        @for (item of similar().splice(0,8); track $index) { 
+            <div class="movie-card">
+                <div class="img">
+                    <a [routerLink]="['/movie', item.id]"><img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,31 +1,14 @@
-
-<app-toolbar></app-toolbar>
-
-<mat-sidenav-container class="main-container">
-  <mat-sidenav #sidenav [mode]="mode.value || 'over'" (click)="sidenav.toggle()">
-    <div class="btn">
-      <br>
-      <button class="" routerLink="movies/now_playing">Sorties</button>
-      <button class="" routerLink="movies/popular">Populaires</button>
-      <button class="" routerLink="movies/top_rated">Les mieux notés</button>
-      <button class="" routerLink="movies/upcoming">À venir</button>
-      
+<main>
+  <app-toolbar></app-toolbar>
+  <div class="search-content">
+    <div [formGroup]="externalId()" class="search-container">
+      <input formControlName="searchInput" class="search-bar" type="text">
+      <button (click)="onSubmit()" type="submit" class="search-btn"><mat-icon class="search-icon">search</mat-icon></button>
     </div>
-  </mat-sidenav>
-  <mat-sidenav-content container-text-color="">
-    <!-- Toolbar toujours visible -->
-    <div class="search-content">
-      <button class="custom-btn btn-4" (click)="sidenav.toggle()">
-        <mat-icon >apps</mat-icon>
-      </button>
-      <div class="search-container">
-        <input class="search-bar" type="text"><button class="search-btn"><mat-icon class="search-icon">search</mat-icon></button>
-      </div>
-      <div></div>
-    </div>
-    <!-- Contenu des routes -->
-    <div class="main-content">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    
+  </div>
+  <div class="main-content">
+    <router-outlet [routerOutletData]="externalId()"></router-outlet>
+  </div>
+</main>
+ 
