@@ -1,26 +1,35 @@
 <div class="main">
+  
   @if (movie()) {
-    <div class="info-container">
-      @if (movie().overview) {
-        <p>{{ movie().overview }}</p>
-      }@else {
-        <p>Pas encore de description pour ce film</p>
-      }
-      <!-- <img [src]="'https://image.tmdb.org/t/p/w500' + m.poster_path" 
-      alt="{{ m.title }}"> -->
-      
-      <div class="infos">
-        <div class="info">
-          <p><strong>Date de sortie :</strong> {{ movie().release_date }}</p>
+    <div class="left">
+      <div class="info-container">
+        
+        @if (movie().overview) {
+          <p class="overview">{{ movie().overview }}</p>
+        }@else {
+          <p>Pas encore de description pour ce film</p>
+        }
+        <!-- <img [src]="'https://image.tmdb.org/t/p/w500' + m.poster_path" 
+        alt="{{ m.title }}"> -->
+        
+        <div class="infos">
+          <div class="info">
+            <p><strong>Date de sortie :</strong> {{ movie().release_date }}</p>
+          </div>
+          <div class="info">
+            <p><strong>Note :</strong> {{ movie().vote_average }} / 10</p>
+          </div>
+          <div class="info">
+            <p><strong>Durée :</strong> {{ movie().runtime }} min</p>
+          </div>
         </div>
-        <div class="info">
-          <p><strong>Note :</strong> {{ movie().vote_average }} / 10</p>
-        </div>
-        <div class="info">
-          <p><strong>Durée :</strong> {{ movie().runtime }} min</p>
-        </div>
+        
       </div>
-      
+      <div class="btn">
+        <button class="button-glob">Like</button>
+        <button class="button-glob">Add</button>
+
+      </div>
     </div>
     <div class="img-container">
       <h1 class="title">{{ movie().title }}</h1>

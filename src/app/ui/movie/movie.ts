@@ -18,18 +18,16 @@ export class Movie {
   
 
   constructor(){
-    effect(() => {
-      this.route.paramMap.subscribe(params => {
-        const id = params.get('id');
-        if(id) {
-          this.api.getMovie(id).subscribe(
-            data => {
-              this.movie.set(data)
-              console.log(this.movie())
-            }
-          )
-        }
-      }) 
-    })
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if(id) {
+        this.api.getMovie(id).subscribe(
+          data => {
+            this.movie.set(data)
+            console.log(this.movie())
+          }
+        )
+      }
+    }) 
   }
 }

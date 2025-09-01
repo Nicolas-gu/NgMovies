@@ -10,14 +10,22 @@
 p, li, h1{
     color: white;
 }
+.overview{
+    font-size: 22px;
+}
 h1{
     text-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+.left{
+    display: flex;
+    flex-direction: column;
 }
 .info-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     max-width: 1280px;
+    height: 440px;
     align-items: start;
     background-color: black;
     padding: 25px;
@@ -28,6 +36,12 @@ h1{
     display: flex;
     justify-content: space-between;
     
+}
+.btn{
+  padding-top: 20px;
+  display: inline-flex;
+  justify-content: end;
+  gap: 1rem;
 }
 .img-container{
     

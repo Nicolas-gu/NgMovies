@@ -13,9 +13,10 @@ export class SimilarList {
   _api = inject(ApiService)
   private route = inject(ActivatedRoute)
   similar = signal<any[]>([])
+  
 
   constructor() {
-    effect(() => {
+    
       this.route.paramMap.subscribe(params => {
         const id = params.get('id');
         if(id) {
@@ -27,6 +28,6 @@ export class SimilarList {
           )
         }
       })
-    })
+   
   }
 }
