@@ -1,10 +1,11 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { MoviesList } from './movies-list/movies-list';
 import { ActivatedRoute } from '@angular/router';
+import { Pagination } from "../pagination/pagination";
 
 @Component({
   selector: 'app-movies',
-  imports: [MoviesList],
+  imports: [MoviesList, Pagination],
   templateUrl: './movies.html',
   styleUrl: './movies.scss'
 })
@@ -12,6 +13,7 @@ export class Movies {
   private route = inject(ActivatedRoute);
   category = signal<string>('');
   categoryTitle = signal<string>('');
+  
 
   private titles: Record<string, string> = {
     now_playing: 'En salle maintenant',
@@ -27,4 +29,5 @@ export class Movies {
       this.categoryTitle.set(this.titles[cat] ?? 'Films');
     });
   }
+  
 }

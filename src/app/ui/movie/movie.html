@@ -4,23 +4,32 @@
     <div class="left">
       <div class="info-container">
         
-        @if (movie().overview) {
-          <p class="overview">{{ movie().overview }}</p>
+        @if (movie()!.overview) {
+          <p class="overview">{{ movie()!.overview }}</p>
         }@else {
           <p>Pas encore de description pour ce film</p>
         }
-        <!-- <img [src]="'https://image.tmdb.org/t/p/w500' + m.poster_path" 
-        alt="{{ m.title }}"> -->
-        
-        <div class="infos">
-          <div class="info">
-            <p><strong>Date de sortie :</strong> {{ movie().release_date }}</p>
+        <div class="data">
+          <div class="genre">
+            <h4>Genres: </h4>
+            <ul>
+              @for (item of movie()?.genres; track $index) {
+                <li>{{item.name}}</li>
+              }
+
+            </ul>
           </div>
-          <div class="info">
-            <p><strong>Note :</strong> {{ movie().vote_average }} / 10</p>
-          </div>
-          <div class="info">
-            <p><strong>Durée :</strong> {{ movie().runtime }} min</p>
+          
+          <div class="infos">
+            <div class="info">
+              <p><strong>Date de sortie :</strong> {{ movie()!.release_date }}</p>
+            </div>
+            <div class="info">
+              <p><strong>Note :</strong> {{ movie()!.vote_average }} / 10</p>
+            </div>
+            <div class="info">
+              <p><strong>Durée :</strong> {{ movie()!.runtime }} min</p>
+            </div>
           </div>
         </div>
         
@@ -32,9 +41,9 @@
       </div>
     </div>
     <div class="img-container">
-      <h1 class="title">{{ movie().title }}</h1>
-      <img class="back-img" [src]="'https://image.tmdb.org/t/p/w1280' + movie().backdrop_path" 
-            alt="{{ movie().title }}">
+      <h1 class="title">{{ movie()!.title }}</h1>
+      <img class="back-img" [src]="'https://image.tmdb.org/t/p/w1280' + movie()!.backdrop_path" 
+            alt="{{ movie()!.title }}">
     </div>
   } @else {
     <p>Chargement du film...</p>

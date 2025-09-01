@@ -7,18 +7,18 @@
     </div>
     <div class="card-list" [class.home]="isHome()" [class.movies]="!isHome()">
         @if (this._router.url === '/home') {
-            @for (item of moviesList().slice(0,8); track $index) { 
+            @for (item of moviesList()!.slice(0,8); track $index) { 
                 <div class="movie-card" appearance="outlined">
                     <div class="img">
-                        <a [routerLink]="['/movie', item.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
+                        <a [routerLink]="['/movie', item!.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
                     </div>
                 </div>
             }
         }@else {
             @for (item of moviesList(); track $index) { 
                 <div class="movie-card" appearance="outlined">
-                    <div class="text-ellipsis" [attr.title]="item.title">
-                        <p>{{item.title}}</p>
+                    <div class="text-ellipsis" [attr.title]="item!.title">
+                        <p>{{item!.title}}</p>
                     </div>
                     <div>
                         <a [routerLink]="['/movie', item.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
@@ -28,3 +28,10 @@
         }
     </div>
 </div>
+@if (this._router.url !== '/home') {
+    <div class="pagination">
+    <button class="button-glob" (click)="prevPage()" [disabled]="currentPage() === 1"><mat-icon>keyboard_arrow_left</mat-icon></button>
+    <span>Page {{ currentPage() }}</span>
+    <button class="button-glob" (click)="nextPage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </div>
+}

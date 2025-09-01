@@ -2,6 +2,7 @@ import { Component, effect, inject, input, Signal, signal, WritableSignal } from
 import { ApiService } from '../../core/services/api-service';
 import { ROUTER_OUTLET_DATA, RouterLink } from '@angular/router';
 import { SearchBar } from '../search-bar/search-bar';
+import { MovieModel } from '../../core/models/movie-model.models';
 
 @Component({
   selector: 'app-search-movie-list',
@@ -11,7 +12,7 @@ import { SearchBar } from '../search-bar/search-bar';
 })
 export class SearchMovieList {
   private _api = inject(ApiService);
-  movieList = signal<any[]>([]);
+  movieList = signal<MovieModel[]>([]);
   external_id = signal<any>("")
 
   constructor() {

@@ -14,8 +14,8 @@ export class ApiService {
 
     
 
-  getMovieListByCategory(category: string):Observable<any>{
-    return this.http.get(`${this.API}movie/${category}?api_key=${this.API_key}&language=fr-FR`)
+  getMovieListByCategory(category: string, page: number = 1):Observable<any>{
+    return this.http.get(`${this.API}movie/${category}?api_key=${this.API_key}&language=fr-FR&page=${page}`);
   }
   getTvListByCategory(category: string):Observable<any>{
     return this.http.get(`${this.API}tv/${category}?api_key=${this.API_key}&language=fr-FR`)
@@ -43,4 +43,4 @@ export class ApiService {
   
 }
 
-//https://api.themoviedb.org/3/movie/latest?api_key=51b67384efd18ca981c82e5fae096c01&language=fr-FR
+//https://api.themoviedb.org/3/genre/movie/list?api_key=51b67384efd18ca981c82e5fae096c01&language=fr-FR

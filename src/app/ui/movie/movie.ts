@@ -1,7 +1,8 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ApiService } from '../../core/services/api-service';
 import { ActivatedRoute } from '@angular/router';
 import { SimilarList } from '../similar-list/similar-list';
+import { MovieModel } from '../../core/models/movie-model.models';
 
 @Component({
   selector: 'app-movie',
@@ -13,7 +14,8 @@ export class Movie {
 
   api = inject(ApiService);
   route = inject(ActivatedRoute);
-  movie = signal<any>(null);
+  movie = signal<MovieModel | null>(null);
+  
   
   
 

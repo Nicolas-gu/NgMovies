@@ -62,6 +62,17 @@ img.home{
 .title-movie{
   padding-bottom: 20px;
 }
+.pagination{
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  align-items: center;
+  gap: 1rem;
+}
+span{
+  color: white;
+}
 
 
 
