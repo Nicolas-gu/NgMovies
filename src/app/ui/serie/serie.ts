@@ -1,20 +1,20 @@
 import { Component, inject, signal } from '@angular/core';
 import { ApiService } from '../../core/services/api-service';
 import { ActivatedRoute } from '@angular/router';
+import { SerieModel } from '../../core/models/serie-model.models';
 import { SimilarList } from '../similar-list/similar-list';
-import { MovieModel } from '../../core/models/movie-model.models';
 
 @Component({
-  selector: 'app-movie',
+  selector: 'app-serie',
   imports: [SimilarList],
-  templateUrl: './movie.html',
-  styleUrl: './movie.scss'
+  templateUrl: './serie.html',
+  styleUrl: './serie.scss'
 })
-export class Movie {
+export class Serie {
 
   _api = inject(ApiService);
   _route = inject(ActivatedRoute);
-  movie = signal<MovieModel | null>(null);
+  serie = signal<SerieModel | null>(null);
   
   
   
@@ -23,10 +23,10 @@ export class Movie {
     this._route.paramMap.subscribe(params => {
       const id = params.get('id');
       if(id) {
-        this._api.getMovie(id).subscribe(
+        this._api.getSerie(id).subscribe(
           data => {
-            this.movie.set(data)
-            console.log(this.movie())
+            this.serie.set(data)
+            console.log(this.serie())
           }
         )
       }

@@ -1,0 +1,54 @@
+<div class="main">
+  
+  @if (serie()) {
+    <div class="left">
+      <div class="info-container">
+        
+        @if (serie()!.overview) {
+          <p class="overview">{{ serie()!.overview }}</p>
+        }@else {
+          <p>Pas encore de description pour ce film</p>
+        }
+        <div class="data">
+          <div class="genre">
+            <h4>Genres: </h4>
+            <ul>
+              @for (item of serie()?.genres; track $index) {
+                <li>{{item.name}}</li>
+              }
+
+            </ul>
+          </div>
+          
+          <div class="infos">
+            <div class="info">
+              <p><strong>Date de sortie :</strong> {{ serie()!.first_air_date }}</p>
+            </div>
+            <div class="info">
+              <p><strong>Note :</strong> {{ serie()!.vote_average }} / 10</p>
+            </div>
+            <div class="info">
+              <p><strong>Durée :</strong> {{ serie()!.episode_run_time }} min</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="btn">
+        <button class="button-glob">Like</button>
+        <button class="button-glob">Add</button>
+
+      </div>
+    </div>
+    <div class="img-container">
+      <h1 class="title">{{ serie()!.name }}</h1>
+      <img class="back-img" [src]="'https://image.tmdb.org/t/p/w1280' + serie()!.backdrop_path" 
+            alt="{{ serie()!.original_name }}">
+    </div>
+  } @else {
+    <p>Chargement du film...</p>
+  }
+</div>
+<div class="similar-container">
+  <app-similar-list></app-similar-list>
+</div>

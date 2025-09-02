@@ -13,26 +13,26 @@
             <h1>{{categoryTitle()}}</h1>
         }
         @if (this._router.url === '/home'){
-            <button class="button-glob grey" [routerLink]="'/movies/' + category()"><mat-icon>fast_forward</mat-icon></button>
+            <button class="button-glob grey" [routerLink]="'/series/' + category()"><mat-icon>fast_forward</mat-icon></button>
         }
     </div>
     <div class="card-list" [class.home]="isHome()" [class.movies]="!isHome()">
         @if (this._router.url === '/home') {
-            @for (item of moviesList8(); track $index) { 
+            @for (item of seriesList8(); track $index) { 
                 <div class="movie-card" appearance="outlined">
                     <div class="img">
-                        <a [routerLink]="['/movie', item!.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
+                        <a [routerLink]="['/serie', item!.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
                     </div>
                 </div>
             }
         }@else {
-            @for (item of moviesList(); track $index) { 
+            @for (item of seriesList(); track $index) { 
                 <div class="movie-card" appearance="outlined">
-                    <div>
-                        <p>{{item!.title}}</p>
+                    <div class="text-ellipsis" [attr.title]="item!.original_name">
+                        <p>{{item!.original_name}}</p>
                     </div>
                     <div>
-                        <a [routerLink]="['/movie', item.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
+                        <a [routerLink]="['/serie', item.id]"><img [class.home]="isHome()" [class.movies]="!isHome()" [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
                     </div>
                 </div>
             }

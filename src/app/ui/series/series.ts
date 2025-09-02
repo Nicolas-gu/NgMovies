@@ -1,15 +1,14 @@
 import { Component, inject, signal } from '@angular/core';
-import { MoviesList } from './movies-list/movies-list';
 import { ActivatedRoute } from '@angular/router';
-import { Pagination } from "../pagination/pagination";
+import { SeriesList } from './series-list/series-list';
 
 @Component({
-  selector: 'app-movies',
-  imports: [MoviesList],
-  templateUrl: './movies.html',
-  styleUrl: './movies.scss'
+  selector: 'app-series',
+  imports: [SeriesList],
+  templateUrl: './series.html',
+  styleUrl: './series.scss'
 })
-export class Movies {
+export class Series {
   private route = inject(ActivatedRoute);
   category = signal<string>('');
   categoryTitle = signal<string>('');

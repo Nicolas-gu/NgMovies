@@ -15,28 +15,28 @@ export class ApiService {
     
 
   getMovieListByCategory(category: string, page: number = 1):Observable<any>{
-    return this.http.get(`${this.API}movie/${category}?api_key=${this.API_key}&language=fr-FR&page=${page}`);
+    return this.http.get(`${this.API}movie/${category}?api_key=${this.API_key}&language=fr-FR&page=${page}&include_adult=false`);
   }
-  getTvListByCategory(category: string):Observable<any>{
-    return this.http.get(`${this.API}tv/${category}?api_key=${this.API_key}&language=fr-FR`)
+  getSerieListByCategory(category: string, page: number = 1):Observable<any>{
+    return this.http.get(`${this.API}tv/${category}?api_key=${this.API_key}&language=fr-FR&page=${page}&include_adult=false`)
   }
 
   searchMovie(external_id:string):Observable<any>{
-    return this.http.get(`${this.API}find/${external_id}?api_key=${this.API_key}&language=fr-FR`)
+    return this.http.get(`${this.API}find/${external_id}?api_key=${this.API_key}&language=fr-FR&include_adult=false`)
   }
 
   getMovie(movieId: string):Observable<any>{
-    return this.http.get(`${this.API}movie/${movieId}?api_key=${this.API_key}&language=fr-FR`)
+    return this.http.get(`${this.API}movie/${movieId}?api_key=${this.API_key}&language=fr-FR&include_adult=false`)
   }
-  getTv(movieId: string):Observable<any>{
-    return this.http.get(`${this.API}tv/${movieId}?api_key=${this.API_key}&language=fr-FR`)
+  getSerie(movieId: string):Observable<any>{
+    return this.http.get(`${this.API}tv/${movieId}?api_key=${this.API_key}&language=fr-FR&include_adult=false`)
   }
 
   getSimilarMovie(movieId: string):Observable<any>{
-    return this.http.get(`${this.API}movie/${movieId}/similar?api_key=${this.API_key}&language=fr-FR`)
+    return this.http.get(`${this.API}movie/${movieId}/similar?api_key=${this.API_key}&language=fr-FR&include_adult=false`)
   }
-  getSimilarTV(movieId: string):Observable<any>{
-    return this.http.get(`${this.API}tv/${movieId}/similar?api_key=${this.API_key}&language=fr-FR`)
+  getSimilarSerie(movieId: string):Observable<any>{
+    return this.http.get(`${this.API}tv/${movieId}/similar?api_key=${this.API_key}&language=fr-FR&include_adult=false`)
   }
 
 

@@ -16,6 +16,10 @@ export class MoviesList {
   api = inject(ApiService);
   _router = inject(Router)
   moviesList = signal<MovieModel[] | null>(null);
+  moviesList8 = computed(() => {  // recalcule movielist8 qd movielist change
+    const list = this.moviesList();
+    return list ? list.slice(0,8) : []
+  })
   category = input.required<string>();
   categoryTitle = input.required<string>();
   isHome = signal<boolean>(false);
@@ -23,7 +27,7 @@ export class MoviesList {
   
   
   constructor() {
-    effect(() => {    // s'execute a la creation et a chaque changement de signal
+    effect(() => {
       this.isHome.set(this._router.url === '/home');
       this.api.getMovieListByCategory(this.category(), this.currentPage()).subscribe(
         data => {
@@ -35,9 +39,11 @@ export class MoviesList {
   }
   nextPage(): void{
     this.currentPage.update(currentPage => currentPage + 1)
+    window.scrollTo({ top:0, behavior: 'smooth'})
   }
   prevPage(): void{
     this.currentPage.update(page => page - 1)
+    window.scrollTo({ top:0, behavior: 'smooth'})
   }
 
 }
