@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, input, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { ApiService } from '../../../core/services/api-service';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';

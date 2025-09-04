@@ -1,14 +1,18 @@
-<app-search-bar></app-search-bar>
+<app-search-bar (search)="onSearch($event)"></app-search-bar>
 <main>
-    <h2>Films</h2>
-    <app-movies-list class="movie-list" category="popular" categoryTitle="Populaires"></app-movies-list>
-    <br><br>
-    <app-movies-list class="movie-list" category="top_rated" categoryTitle="Les mieux notés"></app-movies-list>
-    <br><br>
-    <h2>Séries</h2>
-    <app-series-list class="movie-list" category="popular" categoryTitle="Populaires"></app-series-list>
-    <br><br>
-    <app-series-list class="movie-list" category="top_rated" categoryTitle="Les mieux notés"></app-series-list>
-    <br><br><br><br>
+    @if (!searchQuery) {
+        <h2>Films</h2>
+        <app-movies-list class="movie-list" category="popular" categoryTitle="Populaires"></app-movies-list>
+        <br><br>
+        <app-movies-list class="movie-list" category="top_rated" categoryTitle="Les mieux notés"></app-movies-list>
+        <br><br>
+        <h2>Séries</h2>
+        <app-series-list class="movie-list" category="popular" categoryTitle="Populaires"></app-series-list>
+        <br><br>
+        <app-series-list class="movie-list" category="top_rated" categoryTitle="Les mieux notés"></app-series-list>
+        <br><br><br><br>
+    }@else {
+        <app-search-movie-list [query]="searchQuery"></app-search-movie-list>
+    }
 
 </main>

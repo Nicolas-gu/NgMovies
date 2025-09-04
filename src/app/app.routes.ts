@@ -15,7 +15,6 @@ export const routes: Routes = [
     {path: "new-user", component: ReactivForm},
     {path: "movies/:category", component: Movies},
     {path: "movie/:id", component: Movie},
-    {path: "search", component: SearchMovieList},
     {path: "series/:category", component: Series},
     {path: "serie/:id", component: Serie},
 ];
