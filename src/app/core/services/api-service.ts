@@ -18,8 +18,8 @@ export class ApiService {
     return this.http.get(`${this.API}tv/${category}?api_key=${this.API_key}&language=fr-FR&page=${page}&include_adult=false`)
   }
 
-  searchMovie(query:string):Observable<any>{
-    return this.http.get(`${this.API}search/multi?api_key=${this.API_key}&language=fr-FR&include_adult=false&query=${query}`)
+  searchMovie(query:string, page: number = 1):Observable<any>{
+    return this.http.get(`${this.API}search/multi?api_key=${this.API_key}&language=fr-FR&include_adult=false&query=${query}&page=${page}`)
   }
 
   getMovie(movieId: string):Observable<any>{

@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnChanges, signal } from '@angular/core';
+import { Component, effect, inject, Input, OnChanges, signal } from '@angular/core';
 import { ApiService } from '../../core/services/api-service';
 import { Router, RouterLink } from '@angular/router';
 
@@ -21,7 +21,7 @@ export class SearchMovieList implements OnChanges {
 
   ngOnChanges(): void{
     if (this.query) {
-      this._api.searchMovie(this.query).subscribe(
+      this._api.searchMovie(this.query, this.currentPage()).subscribe(
         data => {
           this.movieList.set(data.results);
           console.log(this.movieList)
