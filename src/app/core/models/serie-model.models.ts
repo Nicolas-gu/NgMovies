@@ -7,6 +7,7 @@ first_air_date?: string | null;
 genres?: Genre[];
 homepage?: string | null;
 id: number;
+media_type: string;
 in_production?: boolean;
 languages?: string[];
 last_air_date?: string | null;

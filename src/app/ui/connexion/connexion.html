@@ -1,0 +1,45 @@
+
+<div class="main-container">
+    <div class="title">
+        <h2>Connexion</h2>
+    </div>
+    <form [formGroup]="connexionForm">
+        <div class="form-container">
+            <div class="input-container">
+                @if(connexionForm.controls.name.hasError('required') && connexionForm.controls.name.touched){
+                    <h6 class="required">Nom de compte requis</h6>
+                }@else{
+                    <h6>Nom de compte</h6>
+                }
+                <input class="input" formControlName="name" type="text">
+            </div>
+            <div class="input-container">
+                 @if(connexionForm.controls.password.hasError('required') && connexionForm.controls.password.touched){
+                    <h6 class="required">Mot de passe requis</h6>
+                }@else{
+                    <h6>Mot de passe</h6>
+                }
+                <input class="input" formControlName="password" type="password">
+            </div>
+            <div class="new">
+                <a (click)="_routing.goNew()"><p>Pas encore de compte?</p></a>
+            </div>
+            <div class="success">
+                @if (successMessage) {
+                    <h4 class="success-message">Connexion réussie</h4>
+                }
+            </div>
+            <div class="error">
+                @if (errorMessage) {
+                    <h4 class="error-message">Nom ou mot de passe inccorect</h4>
+                }
+            </div>
+        </div>
+        <br>
+        <div class="btn">
+            <button (click)="onLogin()" type="submit" class="button-glob">Valider</button>
+        </div>
+    </form>
+    <br>
+    
+</div>

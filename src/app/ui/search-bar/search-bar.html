@@ -1,6 +1,16 @@
 <div class="search-content">
     <form [formGroup]="externalId" class="search-container">
-      <input  formControlName="searchInput" class="search-bar" type="text">
-      <button type="submit" class="search-btn"><mat-icon class="search-icon">search</mat-icon></button>
+      <input placeholder="Recherche par mots clés" formControlName="searchInput" class="input" type="text">
+      <select [formControl]="genreControl" (change)="genreChange()">
+        <option value="">Recherche par genres</option>
+        @for (item of genres; track item.id) {
+            <option [value]="item.id">
+              {{item.name}}
+            </option>
+            }
+      </select>
     </form>
     <div></div>
+
+
+    

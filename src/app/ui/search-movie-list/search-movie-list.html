@@ -1,29 +1,39 @@
 
-    <div class="pagination up">
-    <button class="button-glob" (click)="prevPage()" [disabled]="currentPage() === 1"><mat-icon>keyboard_arrow_left</mat-icon></button>
-    <span>Page {{ currentPage() }}</span>
-    <button class="button-glob" (click)="nextPage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
-    </div>
-
+<div class="pagination up">
+<button class="button-glob" (click)="prevPage()" [disabled]="currentPage() === 1"><mat-icon>keyboard_arrow_left</mat-icon></button>
+<span>Page {{ currentPage() }}</span>
+<button class="button-glob" (click)="nextPage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+</div>
 <div class="movie-list-container">
     <div class="card-list">
         @if (movieList()) {
             @for (item of movieList(); track $index) { 
-                <div class="movie-card" appearance="outlined">
-                    <div class="text-ellipsis" [attr.title]="item.title">
-                        {{item.title}}
+                @if (item.media_type === "movie") {
+                    <div class="movie-card" appearance="outlined">
+                        <div class="text-ellipsis" >
+                            <p>{{item.title}}</p>
+                        </div>
+                        <div>
+                            <a [routerLink]="['/movie', item.id]"><img  [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
+                        </div>
                     </div>
-                    <div>
-                        <a [routerLink]="['/movie', item.id]"><img  [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
+                }
+                @if (item.media_type === "tv") {
+                    <div class="movie-card" appearance="outlined">
+                        <div class="text-ellipsis" >
+                            <p>{{item.name}}</p>
+                        </div>
+                        <div>
+                            <a [routerLink]="['/serie', item.id]"><img  [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
+                        </div>
                     </div>
-                </div>
+                }
             }
         }
     </div>
 </div>
-
-    <div class="pagination down">
-    <button class="button-glob" (click)="prevPage()" [disabled]="currentPage() === 1"><mat-icon>keyboard_arrow_left</mat-icon></button>
-    <span>Page {{ currentPage() }}</span>
-    <button class="button-glob" (click)="nextPage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
-    </div>
+<div class="pagination down">
+<button class="button-glob" (click)="prevPage()" [disabled]="currentPage() === 1"><mat-icon>keyboard_arrow_left</mat-icon></button>
+<span>Page {{ currentPage() }}</span>
+<button class="button-glob" (click)="nextPage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+</div>

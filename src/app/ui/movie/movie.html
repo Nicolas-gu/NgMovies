@@ -9,35 +9,33 @@
         }@else {
           <p>Pas encore de description pour ce film</p>
         }
-        <div class="data">
-          <div class="genre">
-            <h4>Genres: </h4>
-            <ul>
+        <div class="foot">
+          <div class="data">
+            <div class="genre">
+              <h4>Genres :</h4>
               @for (item of movie()?.genres; track $index) {
-                <li>{{item.name}}</li>
+                <p>{{item.name}}</p>
               }
-
-            </ul>
+            </div>
+            <div class="right">
+              <div class="infos">
+                <div class="info">
+                  <p><strong>{{movie()!.origin_country}}</strong></p>
+                  <p><strong>{{ movie()!.release_date | date:'yyyy' }}</strong></p>
+                  <p><strong>{{ movie()!.runtime | hourMinute}} min</strong></p>
+                </div>
+              </div>
+              <div class="note">
+                <p><strong>Note :</strong> {{ movie()!.vote_average }} / 10</p>
+              </div>
+            </div>
           </div>
-          
-          <div class="infos">
-            <div class="info">
-              <p><strong>Date de sortie :</strong> {{ movie()!.release_date }}</p>
-            </div>
-            <div class="info">
-              <p><strong>Note :</strong> {{ movie()!.vote_average }} / 10</p>
-            </div>
-            <div class="info">
-              <p><strong>Durée :</strong> {{ movie()!.runtime }} min</p>
-            </div>
+          <div class="btn">
+            <button class="button-glob">Like</button>
+            <button (click)="addToFavorites()" class="button-glob">Add</button>
           </div>
         </div>
         
-      </div>
-      <div class="btn">
-        <button class="button-glob">Like</button>
-        <button class="button-glob">Add</button>
-
       </div>
     </div>
     <div class="img-container">

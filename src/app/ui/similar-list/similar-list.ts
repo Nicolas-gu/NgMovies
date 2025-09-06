@@ -14,11 +14,15 @@ export class SimilarList {
   _route = inject(Router)
   private route = inject(ActivatedRoute)
   similar = signal<any[]>([])
-  similar8 = computed(() => {
+  similar16 = computed(() => {
     const sim = this.similar();
-    return sim ? sim.slice(0,8) : []
+    return sim ? sim.slice(0,16) : []
   })
   isMovie = signal(true)
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   constructor() {
     if(this._route.url.includes('/movie/')){

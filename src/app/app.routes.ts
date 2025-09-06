@@ -5,16 +5,17 @@ import { MyFavorite } from './ui/my-favorite/my-favorite';
 import { ReactivForm } from './ui/reactiv-form/reactiv-form';
 import { Movies } from './ui/movies/movies';
 import { Movie } from './ui/movie/movie';
-import { SearchMovieList } from './ui/search-movie-list/search-movie-list';
 import { Series } from './ui/series/series';
+import { Connexion } from './ui/connexion/connexion';
 
 export const routes: Routes = [
-    {path: "", redirectTo: 'home', pathMatch: 'full' },
     {path: "home", component: Home},
     {path: "my_favorite", component: MyFavorite},
     {path: "new-user", component: ReactivForm},
+    {path: "connexion", component: Connexion},
     {path: "movies/:category", component: Movies},
     {path: "movie/:id", component: Movie},
     {path: "series/:category", component: Series},
     {path: "serie/:id", component: Serie},
+    {path: "", redirectTo: 'home', pathMatch: 'full' },
 ];

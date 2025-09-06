@@ -7,10 +7,15 @@
         }
     </div>
     <div class="card-list">
-        @for (item of similar8(); track $index) { 
+        @for (item of similar16(); track $index) { 
             <div class="movie-card">
                 <div class="img">
-                    <a [routerLink]="['/movie', item.id]"><img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
+                    @if (isMovie()) {
+                        <a (click)="scrollToTop()" [routerLink]="['/movie', item.id]"><img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
+                    }@else {
+                        <a (click)="scrollToTop()" [routerLink]="['/serie', item.id]"><img [src]="'https://image.tmdb.org/t/p/w200' + item.poster_path"></a>
+
+                    }
                 </div>
             </div>
         }

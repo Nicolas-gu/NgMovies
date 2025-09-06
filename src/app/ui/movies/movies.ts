@@ -1,7 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { MoviesList } from './movies-list/movies-list';
 import { ActivatedRoute } from '@angular/router';
-import { Pagination } from "../pagination/pagination";
 
 @Component({
   selector: 'app-movies',

@@ -1,4 +1,4 @@
-<app-search-bar (search)="onSearch($event)"></app-search-bar>
+<app-search-bar (genre)="onSearch($event)" (search)="onSearch($event)"></app-search-bar>
 <main>
     @if (!searchQuery) {
         <h2>Films</h2>

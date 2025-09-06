@@ -19,7 +19,7 @@ export class ApiService {
   }
 
   searchMovie(query:string, page: number = 1):Observable<any>{
-    return this.http.get(`${this.API}search/multi?api_key=${this.API_key}&language=fr-FR&include_adult=false&query=${query}&page=${page}`)
+    return this.http.get(`${this.API}search/multi?api_key=${this.API_key}&language=fr-FR&page=${page}&include_adult=false&query=${query}`)
   }
 
   getMovie(movieId: string):Observable<any>{
@@ -35,7 +35,10 @@ export class ApiService {
   getSimilarSerie(movieId: string):Observable<any>{
     return this.http.get(`${this.API}tv/${movieId}/similar?api_key=${this.API_key}&language=fr-FR&include_adult=false`)
   }
+  getMovieByDiscover(query: string, page: number = 1): Observable<any>{
+    return this.http.get(`${this.API}discover/movie?api_key=${this.API_key}&with_genres=${query}&language=fr-FR&include_adult=false`)
+  }
 
 }
 
-//https://api.themoviedb.org/3/find/movie/list?api_key=51b67384efd18ca981c82e5fae096c01&language=fr-FR
+//https://api.themoviedb.org/3/discover/movie?api_key=51b67384efd18ca981c82e5fae096c01&language=fr-FR&with_genres=Drame

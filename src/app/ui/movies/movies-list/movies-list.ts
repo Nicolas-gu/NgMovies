@@ -7,7 +7,7 @@ import { MovieModel } from '../../../core/models/movie-model.models';
 
 @Component({
   selector: 'app-movies-list',
-  imports: [MatCardModule, MatIconModule, RouterLink],
+  imports: [ MatIconModule, RouterLink],
   templateUrl: './movies-list.html',
   styleUrl: './movies-list.scss'
 })

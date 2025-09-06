@@ -1,29 +1,50 @@
-<div class="main-container">
-    <form class="form-container"[formGroup]="newUserForm">
-        <div class="input">
-            <mat-form-field appearance = "outline" > 
-                <mat-label>Nom d'utilisateur</mat-label > 
-                <input formControlName="name" matInput   > 
-                <mat-icon matSuffix >person_outline</mat-icon > 
-            </mat-form-field> 
-        </div>
-        <div class="input">
-            <mat-form-field appearance = "outline" > 
-                <mat-label>Email</mat-label > 
-                <input formControlName="email" matInput> 
-                <mat-icon matSuffix >mail_outline</mat-icon > 
-            </mat-form-field>
-        </div>
-        <div class="input">
-            <mat-form-field appearance = "outline" > 
-                <mat-label>Mot de passe</mat-label > 
-                <input formControlName="password" matInput> 
-                <mat-icon matSuffix>lock_outline</mat-icon > 
-            </mat-form-field> 
-        </div>
-        
-</form>
-</div><mat-icon style="fill: pink">exit_to_app</mat-icon>
-<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
 
-<!-- sentiment_very_satisfied -->
+<div class="main-container">
+    <div class="title">
+        <h2>Information de compte</h2>
+    </div>
+    <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+            <div class="input-container">
+                @if(newUserForm.controls.name.hasError('required') && newUserForm.controls.name.touched){
+                    <h6 class="required">Nom de compte requis</h6>
+                }@else{
+                    <h6>Nom de compte</h6>
+                }
+                <input class="input" formControlName="name" type="text">
+            </div>
+            <div class="input-container">
+                @if(newUserForm.controls.email.hasError('required') && newUserForm.controls.email.touched){
+                    <h6 class="required">Adresse email requise</h6>
+                }@else if (newUserForm.controls.email.hasError('email')) {
+                    <h6 class="required">Adresse email invalide</h6>
+                }@else{
+                    <h6>Adresse email</h6>
+                }
+                <input class="input" formControlName="email" type="email">
+            </div>
+            <div class="input-container">
+                 @if(newUserForm.controls.password.hasError('required') && newUserForm.controls.password.touched){
+                    <h6 class="required">Mot de passe requis</h6>
+                }@else{
+                    <h6>Mot de passe</h6>
+                }
+                <input class="input" formControlName="password" type="password">
+            </div>
+            <div class="success">
+                @if (successMessage) {
+                    <h4 class="success-message">Le compte a été créé avec succès</h4>
+                }
+            </div>
+            <div class="error">
+                @if (errorMessage) {
+                    <h4 class="error-message">Champs invalide</h4>
+                }
+            </div>
+        </div>
+        <br>
+        <div class="btn">
+            <button type="submit" class="button-glob">Valider</button>
+        </div>
+    </form>
+</div>

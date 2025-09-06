@@ -1,14 +1,18 @@
 
 <header>
     <div class="title flex">
-        <a href=""><h1>NgMovies</h1></a>
+        <a (click)="_routing.goHome()"><h1>NgMovies</h1></a>
     </div>
-    <!-- <div class="movie-mode flex">
-        <button  class="mode-btn">Film / Série<span></span></button>
-    </div> -->
-    <div class="toolbar-btn flex">
-        <button class="button-glob">Mes films</button>
-        <!-- <button><mat-icon>person_outline</mat-icon></button> -->
-        <button class="button-glob">Mon compte</button>
-    </div>
+    @if (_user.currentUser()) {
+        <div class="toolbar-btn flex">
+            <button (click)="_routing.goFavorite()" class="button-glob">Mes films</button>
+            <button class="button-glob">Mon compte</button>
+            <button (click)="_user.logout()" class="button-glob">Déconnexion</button>
+        </div>
+    }@else {
+        <div class="toolbar-btn flex">            
+            <button (click)="_routing.goConnexion()" class="button-glob">Connexion</button>
+            <button (click)="_routing.goNew()" class="button-glob">Nouveau</button>
+        </div>
+    }
 </header>

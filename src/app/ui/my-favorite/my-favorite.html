@@ -1,1 +1,43 @@
-<p>my-favorite works!</p>
+<div class="btn">
+    <button class="button-glob" (click)="setMovie()">Films</button>
+    <button class="button-glob" (click)="setSerie()">Séries</button>
+</div>
+@if (isMovie()) {
+    <div class="movie-list-container">
+        @if (favoriteMovie().length !== 0) {
+            <div class="card-list">
+                @for (item of favoriteMovie(); track $index) { 
+                    <div class="movie-card" appearance="outlined">
+                        <div>
+                            <p>{{item!.title}}</p>
+                        </div>
+                        <div>
+                            <a [routerLink]="['/movie', item.id]"><img [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }@else {
+            <h3>Aucun film dans cettte liste</h3>
+        }
+    </div>
+}@else {
+    <div class="movie-list-container">
+        @if (favoriteSerie().length !== 0) {
+            <div class="card-list">
+                @for (item of favoriteSerie(); track $index) { 
+                    <div class="movie-card" appearance="outlined">
+                        <div>
+                            <p>{{item!.name}}</p>
+                        </div>
+                        <div>
+                            <a [routerLink]="['/serie', item.id]"><img [src]="'https://image.tmdb.org/t/p/w400' + item.poster_path"></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }@else {
+            <h3>Aucune série dans cettte liste</h3>
+        }
+    </div>
+}

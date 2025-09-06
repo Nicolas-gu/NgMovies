@@ -6,6 +6,7 @@ export interface MovieModel {
   genres: Genre[];
   homepage: string;
   id: number;
+  media_type: string;
   imdb_id: string | null;
   origin_country: string[];
   original_language: string;

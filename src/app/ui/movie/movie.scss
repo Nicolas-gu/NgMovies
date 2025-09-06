@@ -1,7 +1,7 @@
 
 .main{
     padding: 25px;
-    margin: 10px;
+    margin: 60px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -9,6 +9,7 @@
 }
 p, li, h1, h4{
     color: white;
+    text-shadow: 5px 5px 10px rgb(0, 0, 0);
 }
 .overview{
     font-size: 18px;
@@ -16,11 +17,15 @@ p, li, h1, h4{
 h1{
     text-shadow: 5px 5px 10px rgb(0, 0, 0);
 }
-ul{
+li{
     list-style-type:none;
 }
-.genre{
-    display: inline-flex;
+.foot{
+    display: flex;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+    box-sizing: border-box;
 }
 .left{
     display: flex;
@@ -29,24 +34,34 @@ ul{
 .data{
     background-color: rgb(24, 24, 24);
     width: 100%;
-    height: 40%;
-    padding: 15px;
+    height: 100%;
+    padding: 25px;
     border-radius: 8px;
     box-sizing: border-box;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #ff090962;
+    box-shadow: inset 5px 5px 15px;
+    h4{
+        margin-bottom: 10px;
+    }
+}
+.right{
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    align-items: end;
 }
 .info-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     max-width: 1280px;
-    height: 440px;
+    height: 390px;
     align-items: start;
     background-color: black;
-    padding: 25px;
+    padding: 40px;
     box-shadow: 5px 5px 10px rgb(0, 0, 0);
     border-radius: 10px;
 }
@@ -55,9 +70,17 @@ ul{
     justify-content: space-between;
     
 }
+.info{
+    display: inline-flex;
+    p{
+        margin-right: 15px;
+    }
+}
 .btn{
-  padding-top: 20px;
-  display: inline-flex;
+  padding-left: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   justify-content: end;
   gap: 1rem;
 }
